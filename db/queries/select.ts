@@ -5,12 +5,27 @@ import { SelectUser, postsTable, usersTable } from "../schema";
 export async function getUserById(id: SelectUser["id"]): Promise<
   Array<{
     id: number;
+    kinde_id: string;
     name: string;
     age: number;
     email: string;
   }>
 > {
   return db.select().from(usersTable).where(eq(usersTable.id, id));
+}
+
+export async function getUserByKindeId(
+  kinde_id: SelectUser["kinde_id"]
+): Promise<
+  Array<{
+    id: number;
+    kinde_id: string;
+    name: string;
+    age: number;
+    email: string;
+  }>
+> {
+  return db.select().from(usersTable).where(eq(usersTable.kinde_id, kinde_id));
 }
 
 export async function getUsersWithPostsCount(
