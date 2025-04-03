@@ -7,7 +7,7 @@ export async function getUserById(id: SelectUser["id"]): Promise<
     id: number;
     kinde_id: string;
     name: string;
-    age: number;
+
     email: string;
   }>
 > {
@@ -20,9 +20,9 @@ export async function getUserByKindeId(
   Array<{
     id: number;
     kinde_id: string;
-    name: string;
-    age: number;
-    email: string;
+    name: string | null;
+
+    email: string | null;
   }>
 > {
   return db.select().from(usersTable).where(eq(usersTable.kinde_id, kinde_id));
